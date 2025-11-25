@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbyp1xwa5d3e1"]
+
+[ext_resource type="Texture2D" uid="uid://bfhxxo7233hrw" path="res://assets/bg.jpg" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://df2po7qljpmrc" path="res://scripts/level.gd" id="1_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://scenes/player.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://b7pqlnu1t0v8p" path="res://scenes/enemy.tscn" id="3_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://bo3tsnsd5u65d" path="res://scenes/hud.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://n1ju28otepoe" path="res://scenes/pause_menu.tscn" id="6_2r41h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(19, 963)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+size = Vector2(1711, 20)
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_mx8sn")
+enemy_scene = ExtResource("3_mx8sn")
+
+[node name="bg_image" type="Sprite2D" parent="."]
+position = Vector2(839, 472)
+scale = Vector2(0.4195, 0.41955554)
+texture = ExtResource("1_2q6dc")
+
+[node name="player" parent="." instance=ExtResource("2_w8frs")]
+position = Vector2(848, 463)
+scale = Vector2(0.4, 0.4)
+
+[node name="enemy" parent="." instance=ExtResource("3_mx8sn")]
+position = Vector2(-797, -163)
+
+[node name="borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="borders"]
+
+[node name="sol_engel" type="CollisionShape2D" parent="borders/StaticBody2D"]
+position = Vector2(-9.5, 462.5)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="sag_engel" type="CollisionShape2D" parent="borders/StaticBody2D"]
+position = Vector2(1687.5, 472.375)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="ust_engel" type="CollisionShape2D" parent="borders/StaticBody2D"]
+position = Vector2(841.5, -10)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="alt_engel" type="CollisionShape2D" parent="borders/StaticBody2D"]
+position = Vector2(836, 954)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="enemyspawner" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="HUD" parent="." instance=ExtResource("5_ppgk2")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_2r41h")]
+
+[connection signal="timeout" from="enemyspawner" to="." method="_on_enemyspawner_timeout"]

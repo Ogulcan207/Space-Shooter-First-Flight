@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7pqlnu1t0v8p"]
+
+[ext_resource type="Texture2D" uid="uid://dswym18qx3goa" path="res://assets/enemy.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://dcm6at2uif5in" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://dwesptquekcik" path="res://scenes/bullet.tscn" id="2_4ra3w"]
+
+[node name="enemy" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_md0e3")
+bullet_scene = ExtResource("2_4ra3w")
+
+[node name="enemy_image" type="Sprite2D" parent="."]
+texture = ExtResource("1_7p1mj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(10, -92, 28, -91, 37, -88, 101, -88, 106, -82, 106, -74, 83, -44, 66, -15, 51, 17, 31, 87, 0, 88, -30, 88, -50, 18, -66, -16, -85, -44, -107, -75, -107, -81, -101, -89, -37, -87, -30, -91, -11, -92)
+
+[node name="shoottimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true

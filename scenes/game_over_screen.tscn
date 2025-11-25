@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://504bjt6fn0ep"]
+
+[ext_resource type="Script" uid="uid://cak7fblusyt3y" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_61w2s"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_jw6e5"]
+font_size = 32
+
+[node name="GameOverScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_iwahs")
+
+[node name="BackGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -183.5
+offset_top = 247.0
+offset_right = 183.5
+offset_bottom = 335.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_61w2s")
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_top = 400.0
+offset_right = 59.5
+offset_bottom = 445.0
+grow_horizontal = 2
+text = "SKOR: 0"
+label_settings = SubResource("LabelSettings_jw6e5")
+
+[node name="Restart" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -5.0
+offset_right = 64.5
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

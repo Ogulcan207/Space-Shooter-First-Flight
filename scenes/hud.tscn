@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo3tsnsd5u65d"]
+
+[ext_resource type="Script" uid="uid://blsmrjyarkffy" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oo0fn"]
+font_size = 40
+font_color = Color(0.8900885, 0.21730095, 1.92523e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahhtf"]
+font_size = 32
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ahhtf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+offset_left = 45.0
+offset_top = 61.0
+offset_right = 383.0
+offset_bottom = 175.0
+value = 100.0
+show_percentage = false
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -263.0
+offset_top = 90.0
+offset_right = -89.0
+offset_bottom = 153.0
+grow_horizontal = 0
+text = "SKOR: 0"
+label_settings = SubResource("LabelSettings_oo0fn")
+horizontal_alignment = 2
+
+[node name="HealthBar2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 92.0
+offset_right = 314.0
+offset_bottom = 137.0
+text = "HEALTH BAR"
+label_settings = SubResource("LabelSettings_ahhtf")
