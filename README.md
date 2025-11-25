@@ -2,9 +2,6 @@
 
 **Space Shooter: First Flight**, Godot 4 oyun motoru kullanılarak geliştirilmiş, klasik arcade tarzı bir 2D uzay savaşı oyunudur. Bu proje, oyun geliştirme mantığını, Godot'un sinyal yapısını ve temel oyun döngülerini (Core Loop) öğrenmek amacıyla geliştirilmiştir.
 
-![Gameplay Screenshot](ekran_goruntusu_yolu_buraya.png)
-*(Buraya oyunun bir ekran görüntüsünü veya GIF'ini eklersen harika olur)*
-
 ## 🎮 Özellikler
 
 * **Akıcı Kontroller:** WASD hareketi ve Mouse ile 360 derece nişan alma.
